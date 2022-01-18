@@ -1,0 +1,23 @@
+﻿body {
+}
+
+.navbar {
+    background-color: #476A6F;
+    border: 3px solid #CFDACB;
+    height: 61px;
+}
+
+.up {
+    text-decoration: none;
+    color: #F5E0D8;
+    font-size: 30px;
+    line-height: 39px;
+    text-align: center;
+    font-family: 'Grand Hotel', cursive;
+}
+
+.activee {
+    text-decoration: underline;
+    background-color: #AA6966;
+    height: 100%;
+}
