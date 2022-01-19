@@ -3,21 +3,30 @@
 
 .navbar {
     background-color: #476A6F;
-    border: 3px solid #CFDACB;
-    height: 61px;
+    border: 3px dashed #CFDACB;
+    height: 64px;
 }
 
 .up {
     text-decoration: none;
-    color: #F5E0D8;
+    color: #CFDACB;
     font-size: 30px;
-    line-height: 39px;
+    line-height: 50px; /*Antes 39px, ficava o texto da navbar desalinhado na vertical*/
     text-align: center;
     font-family: 'Grand Hotel', cursive;
+    height: 100%;
+}
+
+.nav-link {
+    height:100%;
 }
 
 .activee {
     text-decoration: underline;
     background-color: #AA6966;
-    height: 100%;
+    color: #F5E0D8;
+}
+
+.fa-bars {
+    color: #F5E0D8;
 }
