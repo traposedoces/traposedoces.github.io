@@ -44,6 +44,39 @@
     border-color: #AA6966;
 }
 
-/*.form-check-label:checked {    TENTAR RESOLVER
-    text-decoration:underline;
-}*/
+.campanha2 {
+    color: #47525E;
+    font-family: Grand Hotel;
+    font-size: 26px;
+    line-height: 33px;
+    text-align: center;
+}
+
+.campanha1 {
+    color: #47525E;
+    font-family: Grand Hotel;
+    font-size: 37px;
+    line-height: 48px;
+    text-align: center;
+}
+
+.titulo {
+    color: #47525E;
+    font-family: Grand Hotel;
+    font-size: 37px;
+    line-height: 48px;
+    width: 155px;
+    text-align: center;
+}
+
+.barra {
+    border-left: dotted 2px #d0d0d2;
+}
+
+.produtotxt {
+    color: #47525E;
+    font-family: Grand Hotel;
+    font-size: 26px;
+    line-height: 33px;
+    text-align: center;
+} 
