@@ -18,14 +18,16 @@
                 <span class="navbar-toggler-icon"> <i class="fa fa-bars"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-0 mb-lg-0" style="height: 64px; margin-left: -3px">
+                <ul class="navbar-nav me-auto mb-0 mb-lg-0" style="height: 64px; margin-left: -3px;">
                     <li class="nav-item"><a class="nav-link up" style="padding-inline:67px;" href="index.html">Início</a></li>
                     <li class="nav-item"><a class="nav-link up" style="margin-left:50px;">Produtos</a></li>
                 </ul>
-                <div class="container-fluid" style="text-align:center;">
-                    <a class="navbar-brand" href="index.html" style="margin-right:0px;">
-                        <img src="logo.png" alt="" width="200" height="200">
-                    </a>
+                <div class="container-fluid" style="text-align:center;padding-right:11px;">
+                    <div class="container-fluid" style="width:82%;text-align:right">
+                        <a class="navbar-brand" href="index.html" style="margin-right:0px;width:250px;height:250px;border-radius:100%">
+                            <img src="logo_navbar.png" alt="Trapos & Doces - Logo" width="200" height="200" style="border-radius:100%">
+                        </a>
+                    </div>
                 </div>
                 <ul class="navbar-nav me-auto mb-0 mb-lg-0 justify-content-end" style="height: 64px; margin-right: -3px !important; width: 100%;">
                     <li class="nav-item"><a class="nav-link up text-nowrap">Quem Somos</a></li>
@@ -35,8 +37,36 @@
             </div>
         </div>
     </nav>
-    <div class="row-cols-auto" style="background-color: #FAE9E1; margin-top: 100px;">
-        <h1>HELLO WORLD</h1>
+    <div class="row-cols-auto" style="background-color: #FAE9E1; margin-top: 68px;">
+        <div class="row mb-0" style="width:100%">
+            <h1 style="color: #47525E; text-align: center; font-size: 36px; line-height: 46px; padding-top:28px; margin-bottom:0px;">Cesto de compras</h1>
+        </div>
+        <div class="row" style="width:100%">
+            <div style="border-left: 3px dashed #476A6F; height: 300px; width:3px; position: relative; left: 75%; margin-left: -3px; margin-bottom:3px;"></div>
+            <div class="row mt-4">
+                <div class="col-5 basket-subtitle" style="text-align:center;">Produto:</div>
+                <div class="col-3 basket-subtitle" style="text-align:right;">Quantidade:</div>
+                <div class="col-3 basket-subtitle" style="text-align:right;">Preço:</div>
+            </div>
+        </div>
+        <div class="row mx-5" style="border-bottom: 3px dashed #476A6F; height: 3px; width: 1300px; position: relative; bottom:75%; margin-bottom: -3px; "></div>
+        <div class="row pb-4" style="width: 100%; vertical-align:middle; justify-content:center">
+            <div class="col-9" style="font-size: 25px; display: inline-flex; margin-top: 2rem !important; justify-content:right;">
+                <div class="form-check" style="padding-right: 60px; color: #47525E">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Recolha na loja
+                    </label>
+                </div>
+                <div class="form-check" style="color: #47525E; padding-right:10px; ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Entrega ao domicílio
+                    </label>
+                </div>
+            </div>
+            <div class="col-3 mt-4"><button type="button" class="btn btn-primary" style="background-color: #476A6F; border-color: #476A6F; border-radius: 5px; width: 192px; height: 50px; font-size:25px;">Comprar</button></div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="website.js"></script>
