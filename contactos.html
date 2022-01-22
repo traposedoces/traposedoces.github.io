@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="website.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Roboto&display=swap" rel="stylesheet">
+    <title>Trapos &amp; Doces</title>
+    <style>
+        #map {
+            width: 1658px;
+            height: 550px;
+            margin-top: 20px;
+        }
+        .selector {
+            color: #47525E;
+            font-family: Grand Hotel;
+            font-size: 30px;
+            line-height: 39px;
+            text-align: center;
+        }
+        .card {
+            background-color: #476A6F;
+            width: 370px;
+            height: 350px;
+            margin-right: 170px;
+            margin-top: -500px;
+        }
+        .selector2 {
+            color: #47525E;
+            font-family: Grand Hotel;
+            font-size: 40px;
+            line-height: 33px;
+            width: 884px;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .cardtext {
+            color: #CFDACB;
+            font-family: Lato;
+            font-size: 30px;
+            line-height: 51px;
+            width: 454px;
+            text-align: left;
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+        .cardtext2 {
+            color: #CFDACB;
+            font-family: Lato;
+            font-size: 18px;
+            line-height: 28px;
+            width: 371px;
+            text-align: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg p-0 mb-0 mt-5 text-white navbar navbar-default navbar-nav">
+        <div class="container-fluid p-0" style="height:57px;">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"> <i class="fa fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-0 mb-lg-0" style="height: 64px; margin-left: -3px;">
+                    <li class="nav-item"><a class="nav-link up" style="padding-inline:67px;" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link up" style="margin-left:50px;">Produtos</a></li>
+                </ul>
+                <div class="container-fluid" style="text-align:center;padding-right:20px;">
+                    <div class="container-fluid" style="width:82%;text-align:right">
+                        <a class="navbar-brand" href="index.html" style="margin-right:0px;width:250px;height:250px;border-radius:100%">
+                            <img src="Imagens/logo_navbar.png" alt="Trapos & Doces - Logo" width="200" height="200" style="border-radius:100%">
+                        </a>
+                    </div>
+                </div>
+                <ul class="navbar-nav me-auto mb-0 mb-lg-0 justify-content-end" style="height: 64px; margin-right: -3px !important; width: 100%;">
+                    <li class="nav-item"><a class="nav-link up text-nowrap" href="quemsomos.html">Quem Somos</a></li>
+                    <li class="nav-item"><a class="nav-link activee up" href="contactos.html" style="padding-left: 48px; padding-right: 58px">Contactos</a></li>
+                    <li class="nav-item"><a class="nav-link up" href="cestodecompras.html" style="padding-inline: 67px;"><i class="fa fa-shopping-basket"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" style="background-color: #FAE9E1; margin-top: 68px; height: 500px; padding-top: 28px; line-height: 46px; margin-bottom: 0px; height:650px !important">
+        <div class="row m-0" style="width:100%"><h1 class="selector2">Onde estamos</h1></div>
+        <div class="container" id="map"></div>
+        <div class="container-fluid card">
+            <p class="cardtext">Visite-nos</p>
+            <p class="cardtext2">
+                Facebook:
+                <br />
+                <a style="color: white ;" href="https://www.facebook.com/trapo.doces">https://www.facebook.com/trapo.doces </a>
+                <br>
+
+                Trapos & Doces
+                <br>
+                Rua da Sé, nº123
+                <br>
+                Viseu, Portugal 3510-694
+            </p>
+            <p class="cardtext2">
+                Email: geral@traposedoces.pt
+                <br>
+                Tel: 232 111 999
+            </p>
+        </div>
+    </div>
+    <script>
+        function initMap() {
+            var location = { lat: 40.658734, lng: -7.912031 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 18,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            })
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZF0nxLW8g75qtJ-UoHyUiA8b8Z-SD9ns&callback=initMap"
+            async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="website.js"></script>
+</body>
+</html>

@@ -79,4 +79,8 @@
     font-size: 26px;
     line-height: 33px;
     text-align: center;
-} 
+}
+
+.nav-link:hover {
+    color: #F5E0D8;
+}
