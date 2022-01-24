@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="menu.css" />
     <link rel="stylesheet" href="website.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,9 +21,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-0 mb-lg-0" style="height: 64px; margin-left: -3px;">
                     <li class="nav-item"><a class="nav-link up" style="padding-inline:67px;" href="index.html">Início</a></li>
-                    <li class="nav-item"><a class="nav-link up" style="margin-left:50px;" href="menu.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link activee up" style="padding-inline:58px;" href="menu.html">Produtos</a></li>
                 </ul>
-                <div class="container-fluid" style="text-align:center;padding-right:20px;">
+                <div class="container-fluid" style="text-align:center;padding-right:65px;">
                     <div class="container-fluid" style="width:82%;text-align:right">
                         <a class="navbar-brand" href="index.html" style="margin-right:0px;width:250px;height:250px;border-radius:100%">
                             <img src="Imagens/logo_navbar.png" alt="Trapos & Doces - Logo" width="200" height="200" style="border-radius:100%">
@@ -32,26 +33,38 @@
                 <ul class="navbar-nav me-auto mb-0 mb-lg-0 justify-content-end" style="height: 64px; margin-right: -3px !important; width: 100%;">
                     <li class="nav-item"><a class="nav-link up text-nowrap" href="quemsomos.html">Quem Somos</a></li>
                     <li class="nav-item"><a class="nav-link up" href="contactos.html" style="margin-left: 40px;">Contactos</a></li>
-                    <li class="nav-item"><a class="nav-link activee up" href="cestodecompras.html" style="margin-left: 50px; padding-inline: 67px;"><i class="fa fa-shopping-basket"></i></a></li>
+                    <li class="nav-item"><a class="nav-link up" href="cestodecompras.html" style="margin-left: 50px; padding-inline: 67px;"><i class="fa fa-shopping-basket"></i></a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="row-cols-auto" style="background-color: #FAE9E1; margin-top: 68px;">
-        <div class="row m-0" style="width:100%">
-            <h1 style="color: #47525E; text-align: center; font-size: 36px; line-height: 46px; padding-top:28px; margin-bottom:0px;">Cesto de compras</h1>
-        </div>
-        <div class="row" style="width:100%">
-            <div style="border-left: 3px dashed #476A6F; height: 400px; width:3px; position: relative; left: 75%; margin-left: -3px; margin-bottom:3px;"></div>
-            <div class="row mt-4">
-                <div class="col-5 basket-subtitle" style="text-align:center;">Produto:</div>
-                <div class="col-3 basket-subtitle" style="text-align:right;">Quantidade:</div>
-                <div class="col-3 basket-subtitle" style="text-align:right;">Preço:</div>
-            </div>
-        </div>
+    <div class="container-fluid" style="background-color: #FAE9E1;height:100%;margin-top:68px">
         <div class="row">
-            <div class="col-4" data-bind="foreach: showList">
-                <div class="card text-center border-tp m-2" style="width: 18rem; height: 28rem; border: solid; float: left" data-bind="style: {'border-color' : $parent.border}">
+            <div class="col-2 up old-up" style="border-bottom:dashed;border-right: dashed; border-color: #476A6F; height: 100%; color: #47525E ">
+                <div class="container mt-4">
+                    <h3 style="text-align:center;font-size:37px">Filtrar por:</h3>
+                    <form class="input-font">
+                        <label for="Preço">Preço:</label><br />
+                        <div class="slidecontainer">
+                            <input type="range" data-bind="value:price" min="1" max="25" value="25" class="slider" id="myRange"><br />
+                            <label class="mb-3" for="preco" data-bind="text:showPrice"></label>
+                        </div>
+                        <label for="Alergias">Sem alergénicos:</label>
+                        <div class="form-check mt-1 mb-2">
+                            <input type="radio" name="Alergia" class="form-check-input" value="Glúten" id="gluten" data-bind="checked:alergia" style="border-color:mediumseagreen"><label class="form-check-label" for="gluten">Glúten</label><br />
+                            <input type="radio" name="Alergia" class="form-check-input" value="Ovos" id="ovos" data-bind="checked:alergia" style="border-color:orange"><label class="form-check-label" for="ovos">Ovos</label><br />
+                            <input type="radio" name="Alergia" class="form-check-input" value="Lactose" id="lactose" data-bind="checked:alergia" style="border-color:dodgerblue"><label class="form-check-label" for="lactose">Lactose</label><br />
+                        </div>
+                    </form>
+                    <div class="d-flex my-4 justify-content-center">
+                        <button class="btn btn-dark btn-lg" style="margin-right:10px" data-bind="click:update">Pesquisar</button>
+                        <button class="btn btn-outline-danger btn-lg" data-bind="click:clear">Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style=" min-height: 100vh; font-size:25px;">
+                <div class="container-fluid mt-4" style="padding-left:12px;padding-right:0px" data-bind="foreach: showList">
+                    <div class="card text-center border-tp m-2" style="width: 18rem; height: 28rem; border: solid; float: left" data-bind="style: {'border-color' : $parent.border}">
                         <img style="border-bottom:solid;" data-bind="attr: { src: Foto }" class="card-img-top">
                         <div class="card-body d-flex flex-column justify-content-end">
                             <h5 class="card-title" data-bind="text: Nome" style="font-size: 30px;"></h5>
@@ -59,25 +72,8 @@
                             <a class="btn btn-outline-success stretched-link mb-3" data-bind="attr: { href:'./produto.html?id=' + Id }">Ver produto</a>
                         </div>
                     </div>
-            </div>
-        </div>
-        <div class="row mx-5" style="border-bottom: 3px dashed #476A6F; height: 3px; width: 1300px; position: relative; bottom:75%; margin-bottom: -3px; "></div>
-        <div class="row pb-4" style="width: 100%; vertical-align:middle; justify-content:center">
-            <div class="col-9" style="font-size: 25px; display: inline-flex; margin-top: 2rem !important; justify-content:right;">
-                <div class="form-check" style="padding-right: 60px; color: #47525E">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Recolha na loja
-                    </label>
-                </div>
-                <div class="form-check" style="color: #47525E; padding-right:10px; ">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Entrega ao domicílio
-                    </label>
                 </div>
             </div>
-            <div class="col-3 mt-4"><button type="button" class="btn btn-primary" style="background-color: #476A6F; border-color: #476A6F; border-radius: 5px; width: 192px; height: 50px; font-size:25px;">Comprar</button></div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
