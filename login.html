@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-pt">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +38,21 @@
 
             button:hover {
                 opacity: 0.8;
+            }
+
+        .buttondisguised {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            .buttondisguised:hover {
+                opacity: 0.8;
+                color:white;
             }
 
         /* Extra styles for the cancel button */
@@ -192,10 +207,11 @@
                     <label for="psw"><b>Palavra Passe</b></label>
                     <input type="password" placeholder="Insira a palavra passe" name="psw" required>
 
-                    <button style="background-color: #476A6F" type="submit">Login</button>
+                   
                 </div>
 
                 <div class="container" style="background-color: #FAE9E1">
+                    <a class="buttondisguised" style="background-color: #476A6F;text-decoration:none;" href="menuadmin.html">Login</a>
                     <button style="background-color: #AA6966;" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
                 </div>
             </form>

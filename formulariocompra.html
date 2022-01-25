@@ -48,26 +48,26 @@
             <form name="dados" style="margin-left:300px;">
                 <div class="row mb-1">
                     <label for="Nome" class="col-md-2 col-form-label"><b>Nome</b></label>
-                    <div class="col-md-5"><input type="text" name="Nome" id="Nome" class="form-control" /></div>
+                    <div class="col-md-5"><input type="text" name="Nome" id="Nome" class="form-control" style="font-family:Arial" /></div>
                 </div>
                 <div class="row mb-1">
                     <label for="Telemovel" class="col-md-2 col-form-label"><b>Telemóvel</b></label>
-                    <div class="col-md-5"><input type="text" name="telemovel" id="Telemovel" class="form-control" /></div>
+                    <div class="col-md-5"><input type="text" name="telemovel" id="Telemovel" class="form-control" style="font-family:Arial" /></div>
                 </div>
                 <div class="row mb-1">
                     <label for="Morada" class="col-md-2 col-form-label"><b>Morada</b></label>
-                    <div class="col-md-5"><textarea name="Morada" id="Morada" class="form-control" rows="4"></textarea></div>
+                    <div class="col-md-5"><textarea name="Morada" id="Morada" class="form-control" rows="4" style="font-family:Arial"></textarea></div>
                 </div>
                 <div class="col-md-2" style="font-size:25px;"><b>Método de Pagamento</b></div>
                 <div class="col-md-1 px-3 mx-5 py-3">
                     <div class="form-check" style="font-size:20px;">
-                        <input type="radio" name="pagamento" class="form-check-input" value="MBWay" id="MBWay"><label class="form-check-label" for="MBWay">MBWay</label><br />
+                        <input type="radio" name="pagamento" class="form-check-input" value="MBWay" id="MBWay"><label class="form-check-label" for="MBWay">Multibanco</label><br />
                         <input type="radio" name="pagamento" class="form-check-input" value="PayPal" id="PayPal"><label class="form-check-label" for="PayPal">PayPal</label><br />
                         <input type="radio" name="pagamento" class="form-check-input" value="Azul" id="Visa"><label class="form-check-label" for="Visa">Visa</label>
                     </div>
                 </div>
                 <div class="row mb-1">
-                    <div class="col-md-10 offset-md-2 justify-content-center" style="padding-bottom:50px;">
+                    <div class="col-md-10 offset-md-2 justify-content-center" style="padding-bottom:40px;">
                         <button type="Submit" name="submitBtn" value="Enviar" class="btn btn-danger" onclick="return validar()" style="background-color: #476A6F; border-color: #476A6F; " title="Enviar pedido"><i class="fa fa-send"></i></button>
                         <button type="reset" name="resetBtn" value="Limpar" class="btn btn-dark" onclick="limpar()" title="Limpar compra"><i class="fa fa-trash-o"></i></button>
                     </div>
