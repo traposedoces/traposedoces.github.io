@@ -109,14 +109,11 @@
 
 
     adicionarCesto = function () {
-        console.log("adicionarCesto");
-        var produto = getUrlParameter('id');
-        console.log(produto);
-        var quantidade = self.qnt;
         var arrayPQ = {
             produto : getUrlParameter('id'),
             quantidade : self.qnt
         };
+        /*var jay = fetchJSONFile*/
         var jsonData = ko.toJSON(arrayPQ);
         console.log(jsonData);
         $.post("cesto.json", jsonData, function (returnedData) {
@@ -128,6 +125,8 @@
     console.log(pg);
 
     self.activate(pg);
+
+    
 }
 
 

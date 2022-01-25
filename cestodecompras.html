@@ -41,24 +41,53 @@
         <div class="row m-0" style="width:100%">
             <h1 style="color: #47525E; text-align: center; font-size: 36px; line-height: 46px; padding-top:28px; margin-bottom:0px;">Cesto de compras</h1>
         </div>
-        <div class="row" style="width:100%">
-            <div style="border-left: 3px dashed #476A6F; height: 400px; width:3px; position: relative; left: 75%; margin-left: -3px; margin-bottom:3px;"></div>
-            <div class="row mt-4">
+        <div class="row" style="width: 100%; height: 55px !important">
+            <div style="border-left: 3px dashed #476A6F; height: 980px; width:3px; position: relative; left: 75%; margin-left: -3px; margin-bottom:3px;"></div>
+            <div class="row mt-4" style="height:50px !important">
                 <div class="col-5 basket-subtitle" style="text-align:center;">Produto:</div>
                 <div class="col-3 basket-subtitle" style="text-align:right;">Quantidade:</div>
                 <div class="col-3 basket-subtitle" style="text-align:right;">Preço:</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-4" data-bind="foreach: showList">
-                <div class="card text-center border-tp m-2" style="width: 18rem; height: 28rem; border: solid; float: left" data-bind="style: {'border-color' : $parent.border}">
-                        <img style="border-bottom:solid;" data-bind="attr: { src: Foto }" class="card-img-top">
-                        <div class="card-body d-flex flex-column justify-content-end">
-                            <h5 class="card-title" data-bind="text: Nome" style="font-size: 30px;"></h5>
-                            <p class="card-text" data-bind="text: Preco + '€/unidade'"></p>
-                            <a class="btn btn-outline-success stretched-link mb-3" data-bind="attr: { href:'./produto.html?id=' + Id }">Ver produto</a>
-                        </div>
+            <div class="row">
+                <div class="col-6" style="text-align:center;">
+                    <a href="produto.html?id=0"><img src="Imagens/Imagem2.png" style="width: 303px !important; height: 304px !important; "></a>
+                    <p class="produtotxt" style="text-align:center;">Bolo de Bolacha</p>
+                    <p class="produtotxt" style="text-align:center;"><span>15€</span>
+                </div>
+                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4" style="justify-content:right;text-align:right;">
+                    <div class="d-flex mt-2" style="justify-content:right;text-align:right;">
+                        <button class="btn" data-bind="click:sub">-</button>
+                        <input type="number" style="width:40px;text-align:right;padding:0;font:bold;font-size:20px" value="3" data-bind="value:qnt" disabled />
+                        <button class="btn" data-bind="click:add">+</button>
                     </div>
+                </div>
+                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4 produtotxt" style="text-align:right">
+                    <p data-bind="text: showPreco1()"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6" style="text-align:center;">
+                    <div>
+                        <a href="produto.html?id=9"><img src="Imagens/image (1).png" style="width: 303px; height: 304px; "></a>
+                        <p class="produtotxt" style="text-align:center;">Cupcake</p>
+                        <p class="produtotxt" style="text-align:center;"><span>1€/unidade</span></p>
+                    </div>
+                </div>
+                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4" style="justify-content:right;text-align:right;">
+                    <div class="d-flex mt-2" style="justify-content:right;text-align:right;">
+                        <button class="btn" data-bind="click:sub2">-</button>
+                        <input type="number" style="width:40px;text-align:right;padding:0;font:bold;font-size:20px" value="5" data-bind="value:qnt2" disabled />
+                        <button class="btn" data-bind="click:add2">+</button>
+                    </div>
+                </div>
+                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4 produtotxt" style="text-align:right">
+                    <p data-bind="text: showPreco2()"></p>
+                </div>
+                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4 produtotxt" style="text-align:right;margin-left:1100px !important">
+                    <p data-bind="text: calculateTotal()"></p>
+                </div>
             </div>
         </div>
         <div class="row mx-5" style="border-bottom: 3px dashed #476A6F; height: 3px; width: 1300px; position: relative; bottom:75%; margin-bottom: -3px; "></div>
@@ -77,13 +106,13 @@
                     </label>
                 </div>
             </div>
-            <div class="col-3 mt-4"><button type="button" class="btn btn-primary" style="background-color: #476A6F; border-color: #476A6F; border-radius: 5px; width: 192px; height: 50px; font-size:25px;">Comprar</button></div>
+            <div class="col-3 mt-4"><a class="btn btn-primary" href="formulariocompra.html" style="background-color: #476A6F; border-color: #476A6F; border-radius: 5px; width: 192px; height: 50px; font-size:25px;">Comprar</a></div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="website.js"></script>
-    <script src="menu.js"></script>
+    <script src="cesto.js"></script>
 </body>
 </html>
