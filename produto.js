@@ -1,9 +1,13 @@
-﻿var vm = function () {
+﻿var myStorage = window.sessionStorage;
+
+var vm = function () {
 
     var self = this;
 
-    self.border = ko.observable('#476A6F')
+    self.border = ko.observable('#476A6F');
 
+    self.comprarTxt = ko.observable('Adicionar ao cesto');
+    
     self.qnt = ko.observable(1);
     self.ingr = ko.observableArray([]);
     self.name = ko.observable('');
@@ -107,21 +111,22 @@
         }
     }
 
+    var pg = getUrlParameter('id');
 
-    adicionarCesto = function () {
-        var arrayPQ = {
-            produto : getUrlParameter('id'),
-            quantidade : self.qnt
-        };
-        /*var jay = fetchJSONFile*/
-        var jsonData = ko.toJSON(arrayPQ);
-        console.log(jsonData);
-        $.post("cesto.json", jsonData, function (returnedData) {
-            console.log("sucess")   
-        })
+    self.adicionarCesto = function () {
+        if (myStorage.getItem(pg)) {
+            var nwQnt = parseInt(myStorage.getItem(pg)) + self.qnt();
+            myStorage.setItem(pg, nwQnt);
+        }
+        else {
+            myStorage.setItem(pg, self.qnt());
+        }
+        self.comprarTxt('Adicionado!');
+        $('#comprar').removeClass("btn-dark");
+        $('#comprar').addClass("btn-success");
+        console.log(myStorage)
     }
 
-    var pg = getUrlParameter('id');
     console.log(pg);
 
     self.activate(pg);

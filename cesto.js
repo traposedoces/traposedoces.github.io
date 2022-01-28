@@ -1,4 +1,7 @@
-﻿var vm = function () {
+﻿var myStorage = window.sessionStorage;
+var myLocalStorage = window.localStorage;
+
+var vm = function () {
 
     var self = this;
 
@@ -20,6 +23,12 @@
     self.ovosList = ko.observableArray([]);
     self.lactoseList = ko.observableArray([]);
     self.frutosList = ko.observableArray([]);
+
+    self.seila = ko.observableArray([]);
+    self.fullList = ko.observableArray([]);
+
+    self.totalPrice = ko.observable(0);
+    self.help = ko.observableArray([]);
 
     self.clear = function () {
         console.log("Clear")
@@ -87,6 +96,10 @@
         console.log(actualShow);
     }
 
+    var retVal;
+
+    var full = 0;
+
     self.activate = function () {
         fetchJSONFile('./produtos.json', function (data) {
             self.showList(data.allList);
@@ -95,85 +108,53 @@
             self.ovosList(data.ovosList);
             self.lactoseList(data.lactoseList);
         });
+
+        var fullLst1 = [];
+        $.each(myStorage, function (key, value) {
+            console.log(value);
+            console.log(parseInt(value));
+            fetchJSONFile('./produtos.json', function (data) {
+                var id = parseInt(key);
+                if (id < 12) {
+                    var fullArr = data.allList;
+                    var border = '#476A6F';
+                    var nId = id;
+                }
+                else if (id < 23) {
+                    var fullArr = data.glutenList;
+                    var border = 'mediumseagreen';
+                    var nId = id - 12;
+                }
+                else if (id < 30) {
+                    var fullArr = data.ovosList;
+                    var border = 'orange';
+                    var nId = id - 23;
+                }
+                else {
+                    var fullArr = data.lactoseList;
+                    var border = 'dodgerblue';
+                    var nId = id - 30;
+                }
+                console.log(fullArr[nId])
+                retVal = fullArr[nId];
+                retVal.Qntd = parseInt(value);
+                retVal.Border = border;
+                self.seila(retVal);
+                fullLst1.push(self.seila());
+                self.fullList(fullLst1);
+
+                full += (self.seila().Preco * value);
+
+            });
+        });
     }
 
-    self.add = function () {
-        console.log("add");
-        var n = self.qnt();
-
-        if (n < 100) {
-            var k = n + 1;
-            self.qnt(k);
-        }
-        self.showPreco1();
-    }
-
-    self.sub = function () {
-        console.log("sub");
-        var n = self.qnt();
-
-        if (n > 1) {
-            var k = n - 1;
-            self.qnt(k);
-        }
-        self.showPreco1();
-    }
-
-    self.add2 = function () {
-        console.log("add2");
-        var n = self.qnt2();
-
-        if (n < 100) {
-            var k = n + 1;
-            self.qnt2(k);
-        }
-        self.showPreco2();
-    }
-
-    self.sub2 = function () {
-        console.log("sub2");
-        var n = self.qnt2();
-
-        if (n > 1) {
-            var k = n - 1;
-            self.qnt2(k);
-        }
-        self.showPreco2();
-    }
-
-    self.calculatePreco1 = ko.computed(function () {
-        return (15 * self.qnt());
-    });
-
-    self.calculatePreco2 = ko.computed(function () {
-        return self.qnt2();
-    });
-
-    self.showPreco1 = ko.computed(function () {
-        return self.calculatePreco1() + '€';
-    });
-
-    self.showPreco2 = ko.computed(function () {
-        return self.calculatePreco2() + '€';
-    });
-
-    self.calculateTotal = ko.computed(function () {
-        var total = self.calculatePreco1() + self.calculatePreco2();
-        if (total >= 30) {
-            total = total * 0.8;
-        }
-        return 'Total: ' + total.toFixed(2) + '€';
-    });
 
     self.activate();
-    self.calculatePreco1();
-    self.calculatePreco2();
-    self.calculateTotal();
-    self.showPreco1();
-    self.showPreco2();
 }
 
 $(document).ready(function () {
     console.log("ready!");
+    myLocalStorage.clear();
     ko.applyBindings(new vm());
 });

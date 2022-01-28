@@ -10,6 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Roboto&display=swap" rel="stylesheet">
     <title>Trapos &amp; Doces</title>
+    <style>
+        .idk {
+            border:0;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg p-0 mb-0 mt-5 text-white navbar navbar-default navbar-nav">
@@ -49,46 +54,25 @@
                 <div class="col-3 basket-subtitle" style="text-align:center;padding-left:150px">Preço:</div>
             </div>
         </div>
+        <div class="row" data-bind="foreach:fullList">
+            <div class="row">
+                <div class="col-6" style="text-align:center;">
+                    <a data-bind="attr: { href: '/TraposeDoces/produto.html?id=' + Id}"><img data-bind="attr:{ src: Foto},style:{ 'border-color':Border}" style="width: 303px !important; height: 304px !important; border:solid "></a>
+                    <p class="produtotxt" data-bind="text:Nome" style="text-align:center;"></p>
+                    <p class="produtotxt" data-bind="text:Preco + '€'" style="text-align:center;"><span></span>
+                </div>
+                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4" style="justify-content:right;text-align:right;">
+                    <div class="d-flex mt-2" style="justify-content:right;text-align:right;">
+                        <input type="number" style="width:40px;text-align:right;padding:0;font:bold;font-size:20px;margin-right:40px" value="3" data-bind="value:Qntd" disabled />
+                    </div>
+                </div>
+                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4 produtotxt" style="text-align:right">
+                    <p class="idk" data-bind="text: Qntd * Preco + '€', value: Qntd * Preco"></p>
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <div class="row">
-                <div class="col-6" style="text-align:center;">
-                    <a href="produto.html?id=0"><img src="Imagens/Imagem2.png" style="width: 303px !important; height: 304px !important; "></a>
-                    <p class="produtotxt" style="text-align:center;">Bolo de Bolacha</p>
-                    <p class="produtotxt" style="text-align:center;"><span>15€</span>
-                </div>
-                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4" style="justify-content:right;text-align:right;">
-                    <div class="d-flex mt-2" style="justify-content:right;text-align:right;">
-                        <button class="btn" data-bind="click:sub">-</button>
-                        <input type="number" style="width:40px;text-align:right;padding:0;font:bold;font-size:20px" value="3" data-bind="value:qnt" disabled />
-                        <button class="btn" data-bind="click:add">+</button>
-                    </div>
-                </div>
-                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4 produtotxt" style="text-align:right">
-                    <p data-bind="text: showPreco1()"></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6" style="text-align:center;">
-                    <div>
-                        <a href="produto.html?id=9"><img src="Imagens/image (1).png" style="width: 303px; height: 304px; "></a>
-                        <p class="produtotxt" style="text-align:center;">Cupcake</p>
-                        <p class="produtotxt" style="text-align:center;"><span>1€/unidade</span></p>
-                    </div>
-                </div>
-                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4" style="justify-content:right;text-align:right;">
-                    <div class="d-flex mt-2" style="justify-content:right;text-align:right;">
-                        <button class="btn" data-bind="click:sub2">-</button>
-                        <input type="number" style="width:40px;text-align:right;padding:0;font:bold;font-size:20px" value="5" data-bind="value:qnt2" disabled />
-                        <button class="btn" data-bind="click:add2">+</button>
-                    </div>
-                </div>
-                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4 produtotxt" style="text-align:right">
-                    <p data-bind="text: showPreco2()"></p>
-                </div>
-                <div class="col-2 ms-5 ps-5 mt-5 pt-5 pe-4 produtotxt" style="text-align:right;margin-left:1150px !important">
-                    <p data-bind="text: calculateTotal()"></p>
-                </div>
-            </div>
+            <p data-bind="text:totalPrice + '€'"></p>
         </div>
         <div class="row mx-5" style="border-bottom: 3px dashed #476A6F; height: 3px; width: 1400px; position: relative; bottom:75%; margin-bottom: -3px; "></div>
         <div class="row pb-4" style="width: 100%; vertical-align:middle; justify-content:center">
