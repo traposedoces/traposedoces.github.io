@@ -16,19 +16,20 @@ var vm = function () {
     self.evento = ko.observable('');
     self.alergia = ko.observable('');
     self.border = ko.observable('#476A6F');
-    self.precototal = ko.observable('')
+    self.precototal = ko.observable('');
     self.showList = ko.observableArray([]);
     self.allList = ko.observableArray([]);
     self.glutenList = ko.observableArray([]);
     self.ovosList = ko.observableArray([]);
     self.lactoseList = ko.observableArray([]);
     self.frutosList = ko.observableArray([]);
-
+    self.fullPrice = ko.observable(0);
     self.seila = ko.observableArray([]);
     self.fullList = ko.observableArray([]);
-
     self.totalPrice = ko.observable(0);
     self.help = ko.observableArray([]);
+    self.precoTotal = ko.observable(0);
+    self.precoTotal2 = ko.observable(69);
 
     self.clear = function () {
         console.log("Clear")
@@ -98,7 +99,7 @@ var vm = function () {
 
     var retVal;
 
-    var full = 0;
+    let full = 0;
 
     self.activate = function () {
         fetchJSONFile('./produtos.json', function (data) {
@@ -138,19 +139,36 @@ var vm = function () {
                 console.log(fullArr[nId])
                 retVal = fullArr[nId];
                 retVal.Qntd = parseInt(value);
+                
                 retVal.Border = border;
                 self.seila(retVal);
                 fullLst1.push(self.seila());
                 self.fullList(fullLst1);
-
                 full += (self.seila().Preco * value);
-
+                self.PrecoTotal = (full);
+                console.log("Este é o preço total: " + self.PrecoTotal);
             });
+            
         });
+       
     }
 
 
     self.activate();
+
+    var temporizador = setTimeout(updatePreco, 100);
+
+    function updatePreco() {
+        if (full <= 30) {
+            self.precoTotal2(full);
+        }
+        else {
+            self.precoTotal2(full * 0.8);
+            console.log("Desconto aplicado 20%");
+        }
+        console.log("TOTAL: " + self.precoTotal2());
+    };
+    
 }
 
 $(document).ready(function () {
