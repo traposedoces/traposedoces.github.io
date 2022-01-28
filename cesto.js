@@ -30,6 +30,12 @@ var vm = function () {
     self.help = ko.observableArray([]);
     self.precoTotal = ko.observable(0);
     self.precoTotal2 = ko.observable(69);
+    self.textoDesconto = ko.observable("");
+
+    self.remove = function () {
+        myStorage.clear();
+        window.location.href = "cestodecompras.html";
+    }
 
     self.clear = function () {
         console.log("Clear")
@@ -160,10 +166,13 @@ var vm = function () {
 
     function updatePreco() {
         if (full <= 30) {
-            self.precoTotal2(full);
+            var ale2 = full.toFixed(2);
+            self.precoTotal2(ale2);
         }
         else {
-            self.precoTotal2(full * 0.8);
+            var ale = full * 0.8;
+            self.precoTotal2(ale.toFixed(2));
+            self.textoDesconto("Desconto aplicado 20%");
             console.log("Desconto aplicado 20%");
         }
         console.log("TOTAL: " + self.precoTotal2());
